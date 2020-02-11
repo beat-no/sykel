@@ -1,0 +1,7 @@
+.kdev4/
+build/
+dist/
+sykel.egg-info/
+sykel.kdev4
+sykel/__pycache__/
+
