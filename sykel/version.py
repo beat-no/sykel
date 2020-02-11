@@ -35,10 +35,6 @@ def bump(part: str):
 
 
 def add_file(filepath: str):
-    """
-    * read setup.cfg config
-    * add a new bumpversion section with the new file.
-    """
     config = configparser.ConfigParser()
     config.read(CONFIG_FILEPATH)
     config[FILE_TO_SEARCH_TEMPL.format(filepath=filepath)] = dict()
