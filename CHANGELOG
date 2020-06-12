@@ -1,3 +1,7 @@
+0.0.2 next release
+------------------
+- push to all git remotes at the end of package.publish
+
 0.0.1 2020-02-11
 ----------------
 - add version module

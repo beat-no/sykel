@@ -13,7 +13,7 @@ def clean(ctxt):
     """
     Clean build directory.
     """
-    run('rm dist/*')
+    run("rm dist/*")
 
 
 @task
@@ -21,13 +21,13 @@ def build(ctxt):
     """
     Build package for publishing to PyPI
     """
-    run('python setup.py sdist bdist_wheel')
+    run("python setup.py sdist bdist_wheel")
 
 
 @task
 def publish(ctxt):
     """
-    Publish package to PyPI
+    Publish package to PyPI and push to all remotes
     """
-    run('twine upload dist/*')
-    print("Remember to publish sources as well if needed.")
+    run("twine upload dist/*")
+    run("git remote | xargs -L 1 -I remote echo git push remote")
