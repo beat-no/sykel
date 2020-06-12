@@ -1,5 +1,6 @@
-0.0.2 next release
-------------------
+0.0.2 2020-06-12
+----------------
+- use setup.cfg as bumpversion config file
 - push to all git remotes at the end of package.publish
 
 0.0.1 2020-02-11
