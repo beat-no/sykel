@@ -30,4 +30,4 @@ def publish(ctxt):
     Publish package to PyPI and push to all remotes
     """
     run("twine upload dist/*")
-    run("git remote | xargs -L 1 -I remote echo git push remote")
+    run("git remote | xargs -L 1 -I remote git push remote")
