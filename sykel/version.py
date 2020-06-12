@@ -26,7 +26,7 @@ def init():
 
 
 def bump(part: str):
-    run("bumpversion --allow-dirty %s" % part, echo=True)
+    run("bumpversion --config-file %s --allow-dirty %s" % (CONFIG_FILEPATH, part), echo=True)
     push = input("\nPush version tags (y/n)? ")
     if push == 'y':
         run('git push && git push --tags')
