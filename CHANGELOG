@@ -1,4 +1,12 @@
-0.0.2 2020-06-12
+0.0.6 2020-06-16
+----------------
+- Only enforce use of setup.cfg with bumpversion if its actually there
+- BUG: actually run the git push command in publish, not only echo to screen
+
+0.0.5 2020-06-12
+0.0.4 2020-06-11
+0.0.3 2020-06-11
+0.0.2 2020-06-11
 ----------------
 - use setup.cfg as bumpversion config file
 - push to all git remotes at the end of package.publish
