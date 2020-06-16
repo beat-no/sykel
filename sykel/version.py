@@ -4,6 +4,7 @@
  
 """
 
+import os
 import configparser
 from invoke import run, task
 
@@ -26,7 +27,12 @@ def init():
 
 
 def bump(part: str):
-    run("bumpversion --config-file %s --allow-dirty %s" % (CONFIG_FILEPATH, part), echo=True)
+    cmd = "bumpversion{config_file} --allow-dirty {part}".format(
+        # NOTE: Need this to convince bumpversion to work with setup.cfg it seems.
+        # Has been observed at least in one case, but might not always be so.
+        config_file=" --config-file %s" % CONFIG_FILEPATH if os.path.exists(CONFIG_FILEPATH) else "",
+        part=part)
+    run(cmd, echo=True)
     push = input("\nPush version tags (y/n)? ")
     if push == 'y':
         run('git push && git push --tags')
