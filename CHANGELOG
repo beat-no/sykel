@@ -1,3 +1,7 @@
+0.0.7 2021-02-08
+----------------
+- add mandatory repository option to `package.publish`
+
 0.0.6 2020-06-16
 ----------------
 - Only enforce use of setup.cfg with bumpversion if its actually there

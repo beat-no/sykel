@@ -25,9 +25,25 @@ def build(ctxt):
 
 
 @task
-def publish(ctxt):
+def publish(ctxt, repository):
     """
-    Publish package to PyPI and push to all remotes
+    Publish package and push to all remotes: --repository <pypi,gitlab>
+    
+    The mandtory `--repository` option expects repositories to be configured in `~/.pypirc`:
+    
+        [distutils]
+        index-servers =
+            pypi
+            gitlab
+
+        [pypi]
+        username = __token__
+        password = pypi-<token>
+
+        [gitlab]
+        repository = https://gitlab.dev.beat.no/api/v4/projects/229/packages/pypi
+        username = __token__
+        password = <token>
     """
-    run("twine upload dist/*")
+    run(f"twine upload --repository {repository} dist/*")
     run("git remote | xargs -L 1 -I remote git push remote")
