@@ -21,7 +21,7 @@ def build(ctxt):
     """
     Build package for publishing to PyPI
     """
-    run("python setup.py sdist bdist_wheel")
+    run("python3 setup.py sdist bdist_wheel")
 
 
 @task
